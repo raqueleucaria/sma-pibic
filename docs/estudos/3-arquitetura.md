@@ -1,73 +1,43 @@
-# 1. MAS Comportamental
+# Arquitetura SMA
 
-# Motivação
+## Design Arquitetural
 
-- Sistemas mistos, parte reativos, parte cognitivos.
-- Sistemas associados a uma inteligência implícita.
-- Sistemas apoiados nas noções de previsibilidade. Entretanto, permitindo manifestações de comportamento emergente.
+### **1. Nível BASE: Arquitetura da Plataforma**
 
-![image.png](../img/2-1-motivacao1.png)
+- Elementos da arquitetura
+- Como o JADE trabalha?
 
-![image.png](../img/2-2-motivacao2.png)
+Main container→ 
 
-![image.png](../img/2-3-motivacao3.png)
+- Container princiapal com 3 agentes (AMS, DF, RMA)
 
-![image.png](../img/2-4-abstracao-comportamental.png)
+Agentes
 
-# Principais Abstrações
+1. AMS → Páginas brancas
+    - Conhece todo mundo
+    - Ex: lista telefonica → **todos** os telefones
+2. DF → Páginas amarelas
+    - Não conhece todo mundo
+    - Conhece quem se registra nele
+    - Quem se registra? quem quer oferecer e buscar algo
+    - Ex: lista telefonica → quem pagava mais para ter **destaque**
+3. RMA → da ferramenta gráfica que controla
 
-![image.png](../img/2-5-comportamental.png)
+![image.png](../img/3-1-base.png)
 
-# Modelando e Implementando
+Passos 
 
-### Como abstrair
+- fazer uma aplicação com uma plataforma
+- depois explorar mais quando conseguir como cria container, como desfaz como migra de um para o outro
 
-- Candidatos a agentes
+### 2. Nível **INTERNO**: Arquitetura de Raciocinio e Aprendizado dos seus agentes
 
-![image.png](../img/2-6-como-abstrair1.png)
+Como os agentes atuam, a modelos usados, servidores, envolvidos, etc
 
-![image.png](../img/2-7-como-abstrair2.png)
+![image.png](../img/3-2-interno.png)
 
-### Como projetar
+### 3. Nível **TRANSVERSAL**: Arquitetura da sua aplicação em si
 
-1. Ferramentas de Modelagem
-    - UML tradicional
-    - AUML
-        - http://www.auml.org/
-        - http://people.ucalgary.ca/~far/Lectures/SENG697/PDF/Odell-W001.pdf
-        - http://marcphilippe.huget.free.fr/File/InternetComputing84.pdf
-    - 
-2. Metodologia 
-    - Jade e Tropos - http://www.troposproject.org/ (i* e uml)
-    - **Design Arquitetural → [3. Implementaçao](./3-implementacao.md)**
-        - **Nível BASE**: Arquitetura da Plataforma
-        - **Nível INTERNO**: Arquitetura da Máquina de Raciocínio e Aprendizado dos seus agentes
-        - **Nível TRANSVERSA**L: Arquitetura da sua aplicação em si
+![image.png](../img/3-3-transversal1.png)
 
-3. Metodologia
-    - Jade
-
-### Como desenvolver
-
-### Comportamentos
-
-1. Comportamento cíclico
-    - Cyclic
-    - Ticker → baseado em tempo
-2. Comportamento ciclico baseado em tempo
-3. Comportamento de uma ação só
-    - Oneshot - provocado (próximo de um método) → nao é sequencial necessariamente
-    - Receiver
-    - waker → baseado em tempo
-4. Comportamento executado em paralelo com outro
-    - Parallel
-5. Comportamento executado em sequência com outro
-    - Sequencial
-
-![image.png](../img/2-8-comportamentos.png)
-
-Passos:
-
-- Experimentar cyclic e ticker, depois maker
-- logo apos parallel e sequencial
-- só depois basear em máquina de estados
+![image.png](../img/3-4-transversal2.png)
