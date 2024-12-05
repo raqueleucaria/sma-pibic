@@ -8,3 +8,6 @@
   - [Ubuntu](./estudos/5-instalacao-ubuntu.md)
 - Exemplos
   - [BookTrading](./exemplos/bookTrading.md)
+  - [Party](./exemplos/party.md)
+- Projeto
+  - [Tema](./projeto/tema.md)
